@@ -1,0 +1,139 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+IncludeCmd: yes
+Include: bash vim less man-db apt-utils tzdata
+
+
+%environment
+    PATH="${PATH}":/usr/local/bin/bin/
+
+%runscript
+    echo "Opening container...ubuntu xenial: freebayes, STACKS2, dDocent, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
+
+
+%labels
+    MAINTAINER Pierre-Edouard_GUERIN
+    INSTITUTE CNRS
+    TEAM Biogeographie_Ecologie_Vertebres
+    BUILD 1.0
+    SINGULARITY_VERSION 2.4.2-dist
+    curl 7.47.0
+    Python 2.7.12
+    CD-HIT 4.6
+    samtools 1.3.1
+    bedtools 2.26.0
+    PEAR 0.9.11
+    fastp 0.20.0
+    STACKS 2.4
+    dDocent 2.7.6
+    VCFtools 0.1.14
+    Trimmomatic 0.33
+    JAVA 8.0
+    freebayes 1.3.1
+    GNUPLOT 5.0
+    MAWK 1.2
+    rainbow 2.0.4
+    parallel 20161222
+    seqtk 1.0
+    BWA 0.7.17
+
+
+%post
+    mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse" >> /etc/apt/sources.list
+
+
+    ## git, make, wget
+    apt-get -y --force-yes update
+    yes | apt-get install build-essential
+    yes | apt-get install git
+    yes | apt install wget
+    yes | apt-get install autoconf autogen libtool
+
+    ## zlib, cmake
+    yes | apt install zlib1g-dev libbz2-dev pkg-config cmake
+
+    ## curl, lzma
+    yes | apt-get install curl liblzma-dev libncurses5-dev
+
+    ## python2 minimal
+    yes | apt-get install python-minimal
+
+    ## lib-python
+    yes | apt-get install libpython-dev unzip bc
+
+
+    ## install STACKS    
+    wget http://catchenlab.life.illinois.edu/stacks/source/stacks-1.48.tar.gz
+    tar -xvzf stacks-1.48.tar.gz
+    cd stacks-1.48
+    ./configure --prefix=/usr/local/bin
+    make
+    make install
+    cd ..    
+
+    ## freebayes
+    git clone --recursive https://github.com/ekg/freebayes.git
+    cd freebayes
+    make
+    cd bin
+    chmod +x *
+    cp -f * /usr/local/bin
+    cd ..
+    cd ./vcflib/
+    make
+    chmod +x ./bin/*
+    cp -f ./bin/* /usr/local/bin
+    cd ../..
+
+    ## JAVA
+    yes | apt-get install openjdk-8-jdk
+
+    ## trimmomatic
+    curl -O http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.33.zip
+    yes | unzip Trimmomatic-0.33.zip
+    cd Trimmomatic-0.33
+    cp -f ./adapters/* /usr/local/bin
+    cp -f trimmomatic-0.33.jar /usr/local/bin
+    cd ..
+
+    ## mawk, gnuplot, parallel
+    yes | apt-get install mawk gnuplot parallel
+
+    ## bwa
+    git clone https://github.com/lh3/bwa.git
+    cd bwa
+    make
+    chmod +x bwa
+    cp -f bwa /usr/local/bin
+    cd ..
+
+    ## PEAR
+    wget https://github.com/Grelot/bioinfo_singularity_recipes/raw/master/packages/pear-0.9.11-linux-x86_64.tar.gz
+    tar xzf pear-0.9.11-linux-x86_64.tar.gz
+    cp pear-0.9.11-linux-x86_64/bin/pear /usr/local/bin/pearRM
+
+    ## FASTP
+    git clone https://github.com/OpenGene/fastp.git
+    cd fastp
+    make && make install
+    cd ..
+
+    ## dDocent samtools bamtools CD-HIT rainbow seqtk bedtools
+    wget https://github.com/jpuritz/dDocent/archive/v2.7.6.tar.gz
+    tar -xvzf v2.7.6.tar.gz
+    cd dDocent-2.7.6
+    bash install_dDocent_requirements /usr/local/bin/
+
+   
