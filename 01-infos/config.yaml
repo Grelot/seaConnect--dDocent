@@ -1,0 +1,35 @@
+fastq:
+    /entrepot/donnees/seaconnect/gbs_sar/HMGNFBGX2.fastq.gz
+    /entrepot/donnees/seaconnect/gbs_sar/HMNM7BGX2.fastq.gz
+    /entrepot/donnees/seaconnect/gbs_sar/HTF5NBGX2.fastq.gz
+    /entrepot/donnees/seaconnect/gbs_sar/HV7NTBGX2.fastq.gz
+    
+
+
+process_radtags:
+    enzyme : pstI,bfaI
+    trim_length : 142
+    score_limit : 20
+    sliding_windows_size : 0.20
+    encoded : phred33
+    barcode_dist : 1
+    adapter_mm : 2
+    adapter_1 : ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+species:
+ - mullus
+ - serran
+ - diplodus
+genome_alignment:
+    cores_bwa : 32
+population_map: n
+gstacks:
+    cores : 32
+populations:
+    cores : 32
+    r : 0.85
+    p : 4
+    fst_correction : p_value
+    min_maf : 0.05
+    p_value_cutoff : 0.10
+    lnl_lim : -10
+    renz : SbfI
