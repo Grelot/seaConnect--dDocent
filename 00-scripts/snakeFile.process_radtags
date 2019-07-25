@@ -9,7 +9,7 @@ rule all:
 ## demultiplexing
 rule process_radtags:
     input:
-        fastq=config["fastq"]["folder"]+"/{fastqf}.i.p.q.fastq.gz"
+        fastq=config["fastq"]["folder"]+"/{fastqf}.i.p.q.fastq.gz",
         barcodes=config["process_radtags"]["barcodesFolder"]+"/{fastqf}.txt"
     output:
         directory('03-samples/{fastqf}')
