@@ -23,7 +23,4 @@ rule process_radtags:
         "10-logs/process_radtags/{fastqf}.log"
     shell:
         '''mkdir -p {output};
-        process_radtags -i {params.inTypeFile} -f {input.fastq} -o {output} \
-        -b {input.barcodes} --barcode_dist_1 {params.barcodesDist} \
-        -r -E {params.encoded} -s {params.qualScore} \
-        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1]} 2> {log}'''
+        process_radtags -i {params.inTypeFile} -f {input.fastq} -o {output} -b {input.barcodes} --barcode_dist_1 {params.barcodesDist} -r -E {params.encoded} -s {params.qualScore} --renz_1 {params.enzymes[1]} --renz_2 {params.enzymes[0]} 2> {log}'''
