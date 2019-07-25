@@ -1,7 +1,7 @@
 rule all:
     input:
         expand("{folder}/{fastqf}.i.p.q.fastq.gz", fastqf=config["fastq"]["folder"],folder=config["fastq"]["file"]),
-        expand("{folder}/{fastqf}.txt", fastqf=config["fastq"]["folder"],folder=config["barcodesFolder"]["file"]),
+        expand("{folder}/{fastqf}.txt", fastqf=config["fastq"]["folder"],folder=config["process_radtags"]["barcodesFolder"]),
         directory(expand('03-samples/{fastqf}', fastqf=config["fastq"]["folder"])),
         expand("10-logs/process_radtags/{fastqf}.log",fastqf=config["fastq"]["folder"])
 
