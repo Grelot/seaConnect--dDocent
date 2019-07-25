@@ -1,0 +1,29 @@
+rule all:
+    input:
+        expand("{folder}/{fastqf}.i.p.q.fastq.gz", fastqf=config["fastq"]["folder"],folder=config["fastq"]["file"]),
+        expand("02-fastq/{fastqf}.fastq", fastqf=config["fastq"]["file"]),
+
+## decompress file
+rule fastqgz_gunzip:
+    input:
+        fastq=config["fastq"]["folder"]+"/{fastqf}.i.p.q.fastq.gz"
+        barcodes=config["process_radtags"]["barcodesFolder"]+"/{fastqf}.txt"
+    output:
+        directory('03-samples/{fastqf}')
+    params:
+        inTypeFile=config["process_radtags"]["inTypeFile"],        
+        barcodesDist=config["process_radtags"]["barcodesDist"],
+        encoded=config["process_radtags"]["encoded"],
+        qualScore=config["process_radtags"]["qualScore"],
+        enzymes=config["process_radtags"]["enzymes"]
+    singularity:
+        container:
+            config["container"]
+    log:
+        "10-logs/process_radtags/{fastqf}.log"
+    shell:
+        '''mkdir -p {output};
+        process_radtags -i {params.inTypeFile} -f {input.fastq} -o {output} \
+        -b {input.barcodes} --barcode_dist_1 {params.barcodesDist} \
+        -r -E {params.encoded} -s {params.qualScore} \
+        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1]'''
