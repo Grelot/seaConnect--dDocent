@@ -8,14 +8,16 @@ fastq:
         - C6JATANXX_3
         - C6JATANXX_2
 container:
-    /entrepot/utils/conteneur/seaconnect.simg
+    /entrepot/utils/conteneurs/seaconnect.simg
 process_radtags:
     barcodesFolder: 01-infos/barcodes
     inTypeFile: gzfastq
     barcodesDist: 1
     encoded: phred33
     qualScore: 0
-    enzymes : pstI,bfaI
+    enzymes : 
+        - pstI
+        - bfaI
     trim_length : 142
     sliding_windows_size : 0.20
 species:
