@@ -8,7 +8,7 @@ fastq:
         - C6JATANXX_3
         - C6JATANXX_2
 container:
-    /entrepot/utils/conteneurs/seaconnect.simg
+    seaconnect.simg
 process_radtags:
     barcodesFolder: 01-infos/barcodes
     inTypeFile: gzfastq
