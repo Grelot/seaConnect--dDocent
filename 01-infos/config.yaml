@@ -1,20 +1,23 @@
 fastq:
-    /entrepot/donnees/seaconnect/gbs_sar/HMGNFBGX2.fastq.gz
-    /entrepot/donnees/seaconnect/gbs_sar/HMNM7BGX2.fastq.gz
-    /entrepot/donnees/seaconnect/gbs_sar/HTF5NBGX2.fastq.gz
-    /entrepot/donnees/seaconnect/gbs_sar/HV7NTBGX2.fastq.gz
-    
-
-
+    folder: /entrepot/donnees/seaconnect/gbs_mullus/tiny
+    file:
+        - C6JATANXX_5
+        - C6JATANXX_6
+        - C8BJGANXX_1
+        - C6JATANXX_4
+        - C6JATANXX_3
+        - C6JATANXX_2
+container:
+    /entrepot/utils/conteneur/seaconnect.simg
 process_radtags:
-    enzyme : pstI,bfaI
+    barcodesFolder: 01-infos/barcodes
+    inTypeFile: gzfastq
+    barcodesDist: 1
+    encoded: phred33
+    qualScore: 0
+    enzymes : pstI,bfaI
     trim_length : 142
-    score_limit : 20
     sliding_windows_size : 0.20
-    encoded : phred33
-    barcode_dist : 1
-    adapter_mm : 2
-    adapter_1 : ACACTCTTTCCCTACACGACGCTCTTCCGATCT
 species:
  - mullus
  - serran
