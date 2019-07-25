@@ -1,6 +1,7 @@
 rule all:
     input:
         expand("{folder}/{fastqf}.i.p.q.fastq.gz", fastqf=config["fastq"]["folder"],folder=config["fastq"]["file"]),
+        expand("{folder}/{fastqf}.txt", fastqf=config["fastq"]["folder"],folder=config["barcodesFolder"]["file"]),
         directory(expand('03-samples/{fastqf}', fastqf=config["fastq"]["folder"])
 
 ## decompress file
