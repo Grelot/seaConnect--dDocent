@@ -1,0 +1,40 @@
+fastq:
+    folder: /entrepot/donnees/seaconnect/gbs_mullus/cleaned
+    file:
+        - C6JATANXX_5
+        - C6JATANXX_6
+        - C8BJGANXX_1
+        - C6JATANXX_4
+        - C6JATANXX_3
+        - C6JATANXX_2
+container:
+    seaconnect.simg
+process_radtags:
+    barcodesFolder: 01-infos/barcodes
+    inTypeFile: gzfastq
+    barcodesDist: 1
+    encoded: phred33
+    qualScore: 0
+    enzymes : 
+        - pstI
+        - bfaI
+    trim_length : 142
+    sliding_windows_size : 0.20
+species:
+ - mullus
+ - serran
+ - diplodus
+genome_alignment:
+    cores_bwa : 32
+population_map: n
+gstacks:
+    cores : 32
+populations:
+    cores : 32
+    r : 0.85
+    p : 4
+    fst_correction : p_value
+    min_maf : 0.05
+    p_value_cutoff : 0.10
+    lnl_lim : -10
+    renz : SbfI
