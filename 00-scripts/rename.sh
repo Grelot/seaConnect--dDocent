@@ -15,6 +15,6 @@ do
 		PATH_SE=$(pwd)/03-samples/$LANE/$FILE_SE
 		SAMPLE_EDIT=`echo $SAMPLE | sed 's/_/i/g'`
 		echo $PATH_SE
-		echo $1"/"$POP"_"$SAMPLE_EDIT".F.fq.gz"
+		ln -s $PATH_SE $1"/"$POP"_"$SAMPLE_EDIT".F.fq.gz"
 	fi
 done
