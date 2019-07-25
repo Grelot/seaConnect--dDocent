@@ -2,7 +2,9 @@ rule all:
     input:
         expand("{folder}/{fastqf}.i.p.q.fastq.gz", fastqf=config["fastq"]["folder"],folder=config["fastq"]["file"]),
         expand("{folder}/{fastqf}.txt", fastqf=config["fastq"]["folder"],folder=config["barcodesFolder"]["file"]),
-        directory(expand('03-samples/{fastqf}', fastqf=config["fastq"]["folder"])
+        directory(expand('03-samples/{fastqf}', fastqf=config["fastq"]["folder"])),
+        expand("10-logs/process_radtags/{fastqf}.log",fastqf=config["fastq"]["folder"])
+
 
 ## demultiplexing
 rule process_radtags:
@@ -18,8 +20,7 @@ rule process_radtags:
         qualScore=config["process_radtags"]["qualScore"],
         enzymes=config["process_radtags"]["enzymes"]
     singularity:
-        container:
-            config["container"]
+        config["container"]
     log:
         "10-logs/process_radtags/{fastqf}.log"
     shell:
@@ -27,4 +28,4 @@ rule process_radtags:
         process_radtags -i {params.inTypeFile} -f {input.fastq} -o {output} \
         -b {input.barcodes} --barcode_dist_1 {params.barcodesDist} \
         -r -E {params.encoded} -s {params.qualScore} \
-        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1]'''
+        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1] 2> {log}'''
