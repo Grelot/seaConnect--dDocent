@@ -28,4 +28,4 @@ rule process_radtags:
         process_radtags -i {params.inTypeFile} -f {input.fastq} -o {output} \
         -b {input.barcodes} --barcode_dist_1 {params.barcodesDist} \
         -r -E {params.encoded} -s {params.qualScore} \
-        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1] 2> {log}'''
+        --renz_1 {params.enzymes[0]} --renz_2 {params.enzymes[1]} 2> {log}'''
