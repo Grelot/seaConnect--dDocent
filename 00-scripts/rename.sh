@@ -12,8 +12,8 @@ do
 	then
 		echo $FILE_SE" is empty"
 	else
-		PATH_SE=$(pwd)/03-samples/$LANE/$FOLDER_RUN/$FILE_SE
+		PATH_SE=$(pwd)/03-samples/$LANE/$FILE_SE
 		echo $PATH_SE
-		echo $1"/"$NAME_IND".F.fq.gz"
+		echo $1"/"$POP"_"$SAMPLE".F.fq.gz"
 	fi
 done
