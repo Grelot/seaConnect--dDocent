@@ -4,8 +4,8 @@ rule all:
         expand("{folder}/{fastqf}.txt", fastqf=config["fastq"]["folder"],folder=config["barcodesFolder"]["file"]),
         directory(expand('03-samples/{fastqf}', fastqf=config["fastq"]["folder"])
 
-## decompress file
-rule fastqgz_gunzip:
+## demultiplexing
+rule process_radtags:
     input:
         fastq=config["fastq"]["folder"]+"/{fastqf}.i.p.q.fastq.gz"
         barcodes=config["process_radtags"]["barcodesFolder"]+"/{fastqf}.txt"
