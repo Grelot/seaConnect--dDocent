@@ -57,3 +57,19 @@ Pull a ready to run version of Singularity container
 ```
 singularity pull --name seaconnect.simg shub://Grelot/............................;
 ```
+
+
+# Run the workflow
+
+## barcodes
+
+We generate a barcode file for each run 
+
+## Demultiplexing
+
+
+Mullus surmuletus
+```
+snakemake -s 00-scripts/snakeFile.process_radtags -j 8 --use-singularity --configfile 01-infos/config_mullus.yaml --singularity-args "-B /entrepot:/entrepot"
+
+```
