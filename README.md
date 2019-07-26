@@ -1,10 +1,10 @@
-# seaConnect--dDocent
+# DDOCENT FOR SEACONNECT
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Snakemake](https://img.shields.io/badge/snakemake-5.5.2-brightgreen.svg)](https://snakemake.bitbucket.io)
 
-Process Genotypage by Sequencing data for 2 species with low coverage using a dDocent-based pipeline
+Process Genotypage by Sequencing data for 2 species with low coverage using a dDocent-based workflow
 
-# Installation
+# INSTALLATION
 
 You can get the development version of the code by cloning this repository:
 
@@ -64,7 +64,7 @@ singularity pull --name seaconnect.simg shub://Grelot/..........................
 ```
 
 
-# Run the workflow
+# RUN THE WORKFLOW
 
 ## Preprocessing
 
