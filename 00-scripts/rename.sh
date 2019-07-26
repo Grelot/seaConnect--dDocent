@@ -2,7 +2,6 @@
 ## name of the file will be compatible with dDocent workflow
 
 #argument 1 : path of the results 04-all_samples/species
-#argument 2 : path of the infos files 01-info_files/species_infos.csv
 
 mkdir -p 04-renamed/$1
 awk 'NR>1 { print $1"\t"$2"\t"$3"\t"$4}' $2 | while read LANE BARCODE POP SAMPLE ;
