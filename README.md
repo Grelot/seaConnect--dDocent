@@ -179,6 +179,7 @@ FreeBayes is a Bayesian genetic variant detector designed to detect SNPs, INDels
 
 **run dDocent workflow :**
 
+* Set parameters into [01-infos/ddocent_config.file](01-infos/ddocent_config.file)
 * Go into the `04-ddocent/{species}` folder.
 * Then add a `04-ddocent/{species}/reference.fasta` genome reference sequence file.
 * Now you can run the complete dDocent workflow. Type the following commands :
