@@ -2,7 +2,7 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Snakemake](https://img.shields.io/badge/snakemake-5.5.2-brightgreen.svg)](https://snakemake.bitbucket.io)
 
-Process Genotypage by Sequencing data with low coverage using a dDocent-based workflow. We performed this workflow as part of the project [SEACONNECT project](https://reefish.umontpellier.fr/index.php?article9/total-seaconnect) on 900 samples among 2 fish species _mullus Surmuletus_ and _diplodus Sargus_ in Mediterranean sea.
+Process Genotypage by Sequencing data with low coverage using a dDocent-based workflow. We performed this workflow as part of the [SEACONNECT project](https://reefish.umontpellier.fr/index.php?article9/total-seaconnect) on 900 samples among 2 fish species _mullus Surmuletus_ and _diplodus Sargus_ in Mediterranean sea.
 
 # INSTALLATION
 
@@ -74,7 +74,7 @@ We provide a complete workflow to perform preprocessing of sequencing ngs raw da
 
 ## Set up
 
-**Wildcards :**
+### Wildcards
 * `{species}` : any complete project (in our case we have 2 projects : mullus and diplodus)
 * `{lane}` : any physical lane on a flow cell that goes into the sequencing machine. We have many `{lane}` by `{species}`
 * `{barcode}` : any DNA sequence attached to a reads which belong to a sample. We have many `{barcode}` by `{lane}` by `{species}`
@@ -82,7 +82,7 @@ We provide a complete workflow to perform preprocessing of sequencing ngs raw da
 * `{sample}` : any sample
 
 ### Container
-The container (see [Singularity](#singularity) section below) must be stored into the main directory of this project [seaConnect--dDocent](seaConnect--dDocent) with the name `seaconnect.simg`
+The container (see [Singularity](#singularity) section below) must be stored into the main directory of this project [seaConnect--dDocent](.) with the name `seaconnect.simg`
 
 ### cleaned fastq data
 
