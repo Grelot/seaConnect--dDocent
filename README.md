@@ -69,13 +69,13 @@ singularity pull --name seaconnect.simg shub://Grelot/..........................
 ## Preprocessing
 
 First, SINGLE-END `fastq` files must be quality-filtered.
-We provide a complete workflow to perform preprocessing of sequencing ngs raw data. This workflow is available as a github repositories here : [clean-fastq](https://github.com/Grelot/clean-fastq)
+We provide a complete workflow to perform preprocessing of sequencing ngs raw data. This workflow is available as a github repository here : [clean-fastq](https://github.com/Grelot/clean-fastq)
 
 
 ## Set up
 
 ### Wildcards
-* `{species}` : any complete project (in our case we have 2 projects : mullus and diplodus)
+* `{species}` : any complete project (in our case we have 2 projects : _mullus_ and _diplodus_)
 * `{lane}` : any physical lane on a flow cell that goes into the sequencing machine. We have many `{lane}` by `{species}`
 * `{barcode}` : any DNA sequence attached to a reads which belong to a sample. We have many `{barcode}` by `{lane}` by `{species}`
 * `{pop}` : any group of samples
