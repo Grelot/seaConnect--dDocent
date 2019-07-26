@@ -161,7 +161,7 @@ Each fastq file belonging to a specific `{barcode}` is renamed by the correspond
 bash 00-scripts/rename.sh {species} 01-infos/{species}_sample_information.csv
 ```
 
-This command create a symlink of all fastq files such as `03-samples/{lane}/sample_{barcode}.fq.gz` is linked by `04-renamed/{species}/{pop}_{sample}.F.fq.gz`.
+This command create a symlink of all fastq files such as `03-samples/{lane}/sample_{barcode}.fq.gz` is linked by `04-ddocent/{species}/{pop}_{sample}.F.fq.gz`.
 
 ## dDocent workflow
 
@@ -179,8 +179,8 @@ FreeBayes is a Bayesian genetic variant detector designed to detect SNPs, INDels
 
 **run dDocent workflow :**
 
-* Go into the `04-renamed/{species}` folder.
-* Then add a `04-renamed/{species}/reference.fasta` genome reference sequence file.
+* Go into the `04-ddocent/{species}` folder.
+* Then add a `04-ddocent/{species}/reference.fasta` genome reference sequence file.
 * Now you can run the complete dDocent workflow. Type the following commands :
 
 ```

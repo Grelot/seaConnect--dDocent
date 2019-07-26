@@ -24,13 +24,13 @@ CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
 DDOCENT_CONFIG=/entrepot/working/seaconnect/seaConnect--dDocent/01-infos/ddocent_config.file
 
 #### add a reference
-ln -s /entrepot/donnees/genomes/"${SPECIES}"_genome.fasta 04-renamed/"${SPECIES}"/reference.fasta
+ln -s /entrepot/donnees/genomes/"${SPECIES}"_genome.fasta 04-ddocent/"${SPECIES}"/reference.fasta
 #### run the workflow "dDocent"
-cd 04-renamed/"${SPECIES}"/
+cd 04-ddocent/"${SPECIES}"/
 singularity exec -B "/entrepot:/entrepot" $CONTAINER dDocent $DDOCENT_CONFIG
 cd ../../
 ##filter remove indels
-vcftools --vcf 04-renamed/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode-INFO-all --recode --out 05-vcf/"${SPECIES}"_snps &>10-logs/vcftools_"${SPECIES}".log
+vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode-INFO-all --recode --out 05-vcf/"${SPECIES}"_snps &>10-logs/vcftools_"${SPECIES}".log
 
 
 
