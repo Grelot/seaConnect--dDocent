@@ -9,7 +9,7 @@ Include: bash vim less man-db apt-utils tzdata
     PATH="${PATH}":/usr/local/bin/bin/
 
 %runscript
-    echo "Opening container...ubuntu xenial: freebayes, STACKS2, dDocent, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
+    echo "Opening container...ubuntu xenial: freebayes, STACKS1, dDocent, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
 
 
 %labels
@@ -20,12 +20,12 @@ Include: bash vim less man-db apt-utils tzdata
     SINGULARITY_VERSION 2.4.2-dist
     curl 7.47.0
     Python 2.7.12
+    STACKS 1.48
     CD-HIT 4.6
     samtools 1.3.1
     bedtools 2.26.0
     PEAR 0.9.11
     fastp 0.20.0
-    STACKS 2.4
     dDocent 2.7.6
     VCFtools 0.1.14
     Trimmomatic 0.33
@@ -135,5 +135,3 @@ Include: bash vim less man-db apt-utils tzdata
     tar -xvzf v2.7.6.tar.gz
     cd dDocent-2.7.6
     bash install_dDocent_requirements /usr/local/bin/
-
-   
