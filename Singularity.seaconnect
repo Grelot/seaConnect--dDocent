@@ -20,6 +20,7 @@ Include: bash vim less man-db apt-utils tzdata
     SINGULARITY_VERSION 2.4.2-dist
     curl 7.47.0
     Python 2.7.12
+    freebayes 1.3.1
     STACKS 1.48
     CD-HIT 4.6
     samtools 1.3.1
@@ -29,8 +30,7 @@ Include: bash vim less man-db apt-utils tzdata
     dDocent 2.7.6
     VCFtools 0.1.14
     Trimmomatic 0.33
-    JAVA 8.0
-    freebayes 1.3.1
+    JAVA 8.0    
     GNUPLOT 5.0
     MAWK 1.2
     rainbow 2.0.4
