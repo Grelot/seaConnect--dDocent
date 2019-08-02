@@ -10,5 +10,6 @@ DDOCENT_CONFIG=$3
 
 #### run the workflow "dDocent"
 cd 04-ddocent/"${SPECIES}"/
-singularity exec -B "/entrepot:/entrepot" $CONTAINER dDocent $DDOCENT_CONFIG
+#singularity exec -B "/entrepot:/entrepot" $CONTAINER dDocent $DDOCENT_CONFIG
+singularity exec $CONTAINER dDocent $DDOCENT_CONFIG
 cd ../../
