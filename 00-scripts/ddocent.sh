@@ -5,9 +5,8 @@ SPECIES=mullus
 
 
 ## dDocent
-CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
-DDOCENT_CONFIG=/entrepot/working/seaconnect/seaConnect--dDocent/01-infos/ddocent_config.file
-
+CONTAINER=$2
+DDOCENT_CONFIG=$3
 
 #### run the workflow "dDocent"
 cd 04-ddocent/"${SPECIES}"/
