@@ -20,9 +20,9 @@ snakemake -s 00-scripts/snakeFile.process_radtags -j 8 --use-singularity --confi
 bash 00-script/demort.sh "${SPECIES}"
 
 ## rename
-bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.csv
+bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv
 #### with blacklist
-bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.csv 98-metrics/"${SPECIES}"_samples_blacklist.txt
+bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv 98-metrics/"${SPECIES}"_samples_blacklist.txt
 
 
 
