@@ -16,8 +16,15 @@ snakemake -s 00-scripts/snakeFile.process_radtags -j 8 --use-singularity --confi
 #rm -Rf 03-samples/* 10-logs/*
 
 
+## DEmultiplexing MOnitoring Report Tool
+bash 00-script/demort.sh "${SPECIES}"
+
 ## rename
 bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.csv
+#### with blacklist
+bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.csv 98-metrics/"${SPECIES}"_samples_blacklist.txt
+
+
 
 ## dDocent
 CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
