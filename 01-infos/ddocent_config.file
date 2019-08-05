@@ -1,5 +1,5 @@
 Number of Processors
-16
+64
 Maximum Memory
 0
 Trimming
@@ -11,9 +11,9 @@ SE
 Clustering_Similarity%
 0.86
 Minimum within individual coverage level to include a read for assembly (K1)
-2
+4
 Minimum number of individuals a read must be present in to include for assembly (K2)
-2
+3
 Mapping_Reads?
 yes
 Mapping_Match_Value
