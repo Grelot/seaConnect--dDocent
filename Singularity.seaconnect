@@ -7,6 +7,7 @@ Include: bash vim less man-db apt-utils tzdata
 
 %environment
     PATH="${PATH}":/usr/local/bin/bin/
+    LANGUAGE="en_US.UTF-8"
 
 %runscript
     echo "Opening container...ubuntu xenial: freebayes, STACKS1, dDocent, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
