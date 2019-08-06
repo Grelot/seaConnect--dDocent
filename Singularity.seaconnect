@@ -58,11 +58,11 @@ Include: bash vim less man-db apt-utils tzdata
     apt-get -y --force-yes update
     yes | apt-get install build-essential
     yes | apt-get install git
-    yes | apt install wget
+    yes | apt-get install wget
     yes | apt-get install autoconf autogen libtool
 
     ## zlib, cmake
-    yes | apt install zlib1g-dev libbz2-dev pkg-config cmake
+    yes | apt-get install zlib1g-dev libbz2-dev pkg-config cmake
 
     ## curl, lzma
     yes | apt-get install curl liblzma-dev libncurses5-dev
