@@ -1,27 +1,24 @@
+Variables used in dDocent Run at Thu Jun 28 16:17:31 CEST 2018
 Number of Processors
-64
+16
 Maximum Memory
 0
 Trimming
 yes
 Assembly?
-yes
+no
 Type_of_Assembly
-SE
+
 Clustering_Similarity%
-0.86
-Minimum within individual coverage level to include a read for assembly (K1)
-4
-Minimum number of individuals a read must be present in to include for assembly (K2)
-3
+
 Mapping_Reads?
 yes
 Mapping_Match_Value
 1
 Mapping_MisMatch_Value
-3
+4
 Mapping_GapOpen_Penalty
-5
+6
 Calling_SNPs?
 yes
 Email

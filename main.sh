@@ -20,7 +20,7 @@ snakemake -s 00-scripts/snakeFile.process_radtags -j 8 --use-singularity --confi
 bash 00-script/demort.sh "${SPECIES}"
 
 ## rename
-bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv
+#bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv
 #### with blacklist
 bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv 98-metrics/"${SPECIES}"_samples_blacklist.txt
 
@@ -29,17 +29,18 @@ bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.
 ## dDocent
 CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
 DDOCENT_CONFIG=/entrepot/working/seaconnect/seaConnect--dDocent/01-infos/ddocent_config.file
+CONTAINER=/media/bigvol/eboulanger/seaconnect/seaconnect.simg
+DDOCENT_CONFIG=/media/bigvol/eboulanger/seaconnect/01-infos/ddocent_config.file
+
+
 
 #### add a reference
 ln -s /entrepot/donnees/genomes/"${SPECIES}"_genome.fasta 04-ddocent/"${SPECIES}"/reference.fasta
 #### run the workflow "dDocent"
-cd 04-ddocent/"${SPECIES}"/
-singularity exec -B "/entrepot:/entrepot" $CONTAINER dDocent $DDOCENT_CONFIG
-cd ../../
+bash 00-scripts/ddocent.sh "${SPECIES}" "${CONTAINER}" "${DDOCENT_CONFIG}"
+
 ##filter remove indels
 vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode-INFO-all --recode --out 05-vcf/"${SPECIES}"_snps &>10-logs/vcftools_"${SPECIES}".log
-
-
 
 
 #########################################################################
