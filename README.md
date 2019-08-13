@@ -186,6 +186,7 @@ FreeBayes is a Bayesian genetic variant detector designed to detect SNPs, INDels
 
 ```
 ## global variable
+SPECIES=mullus
 CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
 DDOCENT_CONFIG=/entrepot/working/seaconnect/seaConnect--dDocent/01-infos/ddocent_config.file
 ## run dDocent
@@ -199,3 +200,16 @@ This command run dDocent workflow. It generates genotypes for each `{sample}` fo
 ## Generate final VCF
 
 Genotypes are stored as `VCF` files. We keep only SNPs (Single Nucleotide Polymorphism) variants.
+
+```
+## global variable
+SPECIES=mullus
+CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
+## filter VCF remove INDELs
+singularity exec "${CONTAINER}" vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode --recode-INFO-all --out 05-vcf/"${SPECIES}"
+```
+
+# SOURCE CODE
+
+* All the commands to run the workflow are available as a bash script [main.sh](main.sh).
+* You can also run the whole workflow step by step using scripts collection [00-scripts](00-scripts.)
