@@ -209,6 +209,10 @@ CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
 singularity exec "${CONTAINER}" vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode --recode-INFO-all --out 05-vcf/"${SPECIES}"
 ```
 
+Final result is generated as `VCF` files into [05-vcf](05-vcf) folder and contains only SNPs.  
+GBS SNP calling has been now performed. SNPs will be then filtered for next analysis using [Emilie Boulanger's workflow](https://github.com/eboulanger/seaConnect--radFishComp).
+
+
 # SOURCE CODE
 
 * All the commands to run the workflow are available as a bash script [main.sh](main.sh).
