@@ -206,7 +206,7 @@ Genotypes are stored as `VCF` files. We keep only SNPs (Single Nucleotide Polymo
 SPECIES=mullus
 CONTAINER=/entrepot/working/seaconnect/seaConnect--dDocent/seaconnect.simg
 ## filter VCF remove INDELs
-singularity exec "${CONTAINER}" vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode --recode-INFO-all --out 05-vcf/"${SPECIES}"
+singularity exec "${CONTAINER}" vcftools --vcf 04-ddocent/"${SPECIES}"/Final.recode.vcf --remove-indels --recode --recode-INFO-all --out 05-vcf/"${SPECIES}"
 ```
 
 Final result is generated as `VCF` files into [05-vcf](05-vcf) folder and contains only SNPs.  
