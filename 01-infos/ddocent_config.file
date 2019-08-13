@@ -1,8 +1,7 @@
-Variables used in dDocent Run at Thu Jun 28 16:17:31 CEST 2018
 Number of Processors
 16
 Maximum Memory
-0
+512G
 Trimming
 yes
 Assembly?
@@ -11,6 +10,10 @@ Type_of_Assembly
 
 Clustering_Similarity%
 
+Minimum within individual coverage level to include a read for assembly (K1)
+5
+Minimum number of individuals a read must be present in to include for assembly (K2)
+3
 Mapping_Reads?
 yes
 Mapping_Match_Value
