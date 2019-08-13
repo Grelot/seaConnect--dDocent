@@ -40,8 +40,8 @@ ln -s /entrepot/donnees/genomes/"${SPECIES}"_genome.fasta 04-ddocent/"${SPECIES}
 bash 00-scripts/ddocent.sh "${SPECIES}" "${CONTAINER}" "${DDOCENT_CONFIG}"
 
 ##filter remove indels
-vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode-INFO-all --recode --out 05-vcf/"${SPECIES}"_snps &>10-logs/vcftools_"${SPECIES}".log
-
+#vcftools --vcf 04-ddocent/"${SPECIES}"/TotalRawSNPs.vcf --remove-indels --recode-INFO-all --recode --out 05-vcf/"${SPECIES}"_snps &>10-logs/vcftools_"${SPECIES}".log
+bash 00-scripts/rm_indels.sh "${SPECIES}" "${CONTAINER}"
 
 #########################################################################
 
