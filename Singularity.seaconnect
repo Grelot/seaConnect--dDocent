@@ -9,7 +9,7 @@ Include: bash vim less man-db apt-utils tzdata
     PATH="${PATH}":/usr/local/bin/bin/    
 
 %runscript
-    echo "Opening container...ubuntu xenial: freebayes, STACKS1, dDocent, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
+    echo "Opening container...ubuntu xenial: freebayes, STACKS1, dDocent, DEMORT, parallel, gnuplot, mawk, VCFtools, VCFlib, trimmomatic, bwa, CD-HIT, samtools, bedtools, PEAR, fastp, seqtk, curl, wget, python2, java8"
 
 
 %labels
@@ -37,6 +37,7 @@ Include: bash vim less man-db apt-utils tzdata
     parallel 20161222
     seqtk 1.0
     BWA 0.7.17
+    DEMORT 0.2.4
 
 
 %post
@@ -72,6 +73,22 @@ Include: bash vim less man-db apt-utils tzdata
 
     ## lib-python
     yes | apt-get install libpython-dev unzip bc
+
+    ## python3 minimal
+    yes | apt-get install python3
+
+    ## DEMORT
+    yes | apt-get install python3
+    yes | apt-get install python3-pip
+    python3 -m pip install demort
+
+    
+    python3 -m pip install --user --upgrade pip==9.0.3
+
+    python3 -m pip install --user demort
+
+    pip3 install demort
+
 
 
     ## install STACKS    
