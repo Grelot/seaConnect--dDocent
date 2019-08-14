@@ -78,16 +78,8 @@ Include: bash vim less man-db apt-utils tzdata
     yes | apt-get install python3
 
     ## DEMORT
-    yes | apt-get install python3
     yes | apt-get install python3-pip
-    python3 -m pip install demort
-
-    
-    python3 -m pip install --user --upgrade pip==9.0.3
-
-    python3 -m pip install --user demort
-
-    pip3 install demort
+    python3 -m pip install demort 
 
 
 
