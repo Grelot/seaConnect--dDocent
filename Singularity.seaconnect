@@ -79,8 +79,8 @@ Include: bash vim less man-db apt-utils tzdata
 
     ## DEMORT
     yes | apt-get install python3-pip
-    python3 -m pip install demort 
-
+    python3 -m pip install --upgrade pip==9.0.3
+    pip3 install demort 
 
 
     ## install STACKS    
