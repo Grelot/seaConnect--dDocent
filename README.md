@@ -18,7 +18,7 @@ git clone https://github.com/Grelot/seaConnect--dDocent.git
 * [snakemake](https://snakemake.bitbucket.io)
 
 ## Dependencies
-You will need to have the following programs installed on your computer. Alternatively we provide a singularity container (see below).
+You will need to have the following programs installed on your computer. Alternatively we provide a singularity container (see [Singularity](#singularity) section below).
 
 - OSX or GNU Linux
 - bash 4.4.19
@@ -83,11 +83,11 @@ We provide a complete workflow to perform preprocessing of sequencing ngs raw da
 * `{sample}` : any sample
 
 ### Container
-The container (see [Singularity](#singularity) section below) must be stored into the main directory of this project [seaConnect--dDocent](.) with the name `seaconnect.simg`
+The container (see [Singularity](#singularity) section above) must be stored into the main directory of this project [seaConnect--dDocent](.) with the name `seaconnect.simg`
 
 ### cleaned fastq data
 
-Write the absolute path of the folder containing filtered data after [preprocessing](#-preprocessing) into [config.yaml](01-infos/config_mullus.yaml) `fastq` section `folder` subsection. Prefix of each fastq file you want to process must be write as a list into subsection `file`
+Write the absolute path of the folder containing filtered data after preprocessing into [config.yaml](01-infos/config_mullus.yaml) `fastq` section `folder` subsection. Prefix of each fastq file you want to process must be write as a list into subsection `file`
 
 **For instance :**
 
