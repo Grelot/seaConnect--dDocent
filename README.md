@@ -155,14 +155,13 @@ This command process demultiplexing for each `{lane}`. Results are stored into `
 :warning: If your cleaned fastq data folder is not into the current directory, you have to create a binding point for the singularity container. Modify the `--singularity-args "-B /entrepot:/entrepot"` argument of the command below.
 
 
-## _(optional)_ DEmultiplexing MOnitoring Report Tool
+## _(optional)_ Blacklisting samples with low coverage
 
 If you want a blacklist of `{sample}` fastq files with low coverage, you can use [DEMORT](https://pypi.org/project/demort/0.2.4/) to get number of reads by `{sample}` fastq files.
 ```
 bash 00-scripts/demort.sh {species}
 ```
-This command evaluates demultiplexed fastq files by computing various metrics. `{sample}` with a low number of reads are blacklisted. Results are stored into [98-metrics](98-metrics) folder.
-
+This command evaluates demultiplexed fastq files by computing various metrics. Each `{sample}` with a low number of reads is blacklisted. Results are stored into [98-metrics](98-metrics) folder.
 
 
 ## Mapping `{barcode}` with `{pop}` and `{sample}`
@@ -173,8 +172,9 @@ Each fastq file belonging to a specific `{barcode}` is renamed by the correspond
 bash 00-scripts/rename.sh {species} 01-infos/{species}_sample_information.csv 98-utils/{species}_samples_blacklist.txt
 ```
 
-This command create a symlink of all fastq files such as `03-samples/{lane}/sample_{barcode}.fq.gz` is linked by `04-ddocent/{species}/{pop}_{sample}.F.fq.gz`.
-:paperclip: Optionally, if a samples blacklist is provided, blacklisted {sample} is filtered.
+This command create a symlink of all fastq files such as `03-samples/{lane}/sample_{barcode}.fq.gz` is linked by `04-ddocent/{species}/{pop}_{sample}.F.fq.gz`. 
+
+:paperclip: Optionally, if a samples blacklist is provided, each blacklisted {sample} is filtered.
 
 ## dDocent workflow
 
