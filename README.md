@@ -18,7 +18,7 @@ git clone https://github.com/Grelot/seaConnect--dDocent.git
 * [snakemake](https://snakemake.bitbucket.io)
 
 ## Dependencies
-You will need to have the following programs installed on your computer.
+You will need to have the following programs installed on your computer. Alternatively we provide a singularity container (see below).
 
 - OSX or GNU Linux
 - bash 4.4.19
@@ -42,6 +42,7 @@ You will need to have the following programs installed on your computer.
 - GNU parallel
 - seqtk 1.0
 - BWA 0.7.17
+- _(optional)_ [DEMORT 0.2.4](https://pypi.org/project/demort/0.2.4/)
 
 ## Singularity
 
@@ -50,7 +51,7 @@ See https://www.sylabs.io/docs/ for instructions to install Singularity.
 We provide a [Singularity recipe](Singularity.seaconnect) and ready to run container with all required dependencies.
 
 ### Build a container
-Build a local container with all required programs and dependencies using Singularity recipe [Singularity.seaconnect](Singularity.seaconnect)
+Build a local container as administrator with all required programs and dependencies using Singularity recipe [Singularity.seaconnect](Singularity.seaconnect)
 
 ```
 sudo singularity build seaconnect.simg Singularity.seaconnect
@@ -153,15 +154,27 @@ This command process demultiplexing for each `{lane}`. Results are stored into `
 
 :warning: If your cleaned fastq data folder is not into the current directory, you have to create a binding point for the singularity container. Modify the `--singularity-args "-B /entrepot:/entrepot"` argument of the command below.
 
+
+## _(optional)_ DEmultiplexing MOnitoring Report Tool
+
+If you want a blacklist of `{sample}` fastq files with low coverage, you can use [DEMORT](https://pypi.org/project/demort/0.2.4/) to get number of reads by `{sample}` fastq files.
+```
+bash 00-scripts/demort.sh {species}
+```
+This command evaluates demultiplexed fastq files by computing various metrics. `{sample}` with a low number of reads are blacklisted. Results are stored into [98-metrics](98-metrics) folder.
+
+
+
 ## Mapping `{barcode}` with `{pop}` and `{sample}`
 
 Each fastq file belonging to a specific `{barcode}` is renamed by the corresponding association `{pop}` and `{sample}` as stipulated into `{species}_sample_information.tsv` file. (see for instance [mullus_sample_information.tsv](01-infos/mullus_sample_information.tsv))
 
 ```
-bash 00-scripts/rename.sh {species} 01-infos/{species}_sample_information.csv
+bash 00-scripts/rename.sh {species} 01-infos/{species}_sample_information.csv 98-utils/{species}_samples_blacklist.txt
 ```
 
 This command create a symlink of all fastq files such as `03-samples/{lane}/sample_{barcode}.fq.gz` is linked by `04-ddocent/{species}/{pop}_{sample}.F.fq.gz`.
+:paperclip: Optionally, if a samples blacklist is provided, blacklisted {sample} is filtered.
 
 ## dDocent workflow
 
