@@ -81,6 +81,7 @@ Include: bash vim less man-db apt-utils tzdata
     yes | apt-get install python3-pip
     python3 -m pip install --upgrade pip==9.0.3
     pip3 install demort 
+    yes | apt-get install python3-tk
 
 
     ## install STACKS    
