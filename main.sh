@@ -26,7 +26,7 @@ snakemake -s 00-scripts/snakeFile.process_radtags -j 8 --use-singularity --confi
 
 
 ## DEmultiplexing MOnitoring Report Tool
-bash 00-script/demort.sh "${SPECIES}"
+bash 00-script/demort.sh "${SPECIES}" "${CONTAINER}"
 
 ## rename
 #bash 00-scripts/rename.sh "${SPECIES}" 01-infos/"${SPECIES}"_sample_information.tsv
