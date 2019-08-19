@@ -1,8 +1,13 @@
 ## species
 #SPECIES=$1
+
+## first argument is species name
 SPECIES=$1
+## second argument is container absolute path (optional)
 CONTAINER=$2
 
+## you can run demort.py without container (if it's already installed on your computer)
+## the script detects if you provided a container or not
 
 ## DEmultiplexing MOnitoring Report Tool
 if [ -z "$CONTAINER" ]
