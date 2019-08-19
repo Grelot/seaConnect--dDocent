@@ -229,4 +229,4 @@ GBS SNP calling has been now performed. SNPs will be then filtered for next anal
 # SOURCE CODE
 
 * All the commands to run the workflow are available as a bash script [main.sh](main.sh).
-* You can also run the whole workflow step by step using scripts collection [00-scripts](00-scripts.)
+* You can also run the whole workflow step by step using scripts collection [00-scripts](00-scripts).
